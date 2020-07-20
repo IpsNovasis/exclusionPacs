@@ -1,0 +1,136 @@
+<div class="container-fuild">
+  <form class="form" style="font-size:12px;">
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <div class="form-row align-items-center">
+          <div class="col-auto my-1">
+            <select class="custom-select mr-sm-2" style="font-size:small" name="selegibilidad" id="selegibilidad"
+              [(ngModel)]="selegibilidad" [ngModelOptions]="{standalone: true}">
+              <option selected value="0">Elegibilidad...</option>
+              <option value="1">Fijo</option>
+              <option value="2">Año Cotizado</option>
+              <option value="3">Ambos</option>
+            </select>
+
+          </div>
+          <div class="col-auto my-1">
+            <select class="custom-select mr-sm-2" style="font-size:small" name="sentidad" id="sentidad"
+              [(ngModel)]="sentidad" [ngModelOptions]="{standalone: true}">
+              <option selected value="0">Entidad...</option>
+              <option value="CUPRUM">CUPRUM</option>
+              <option value="TEST">TEST</option>
+              <option value="3">Todas</option>
+            </select>
+          </div>
+          <div class="col-auto my-1">
+            <select class="custom-select mr-sm-2" style="font-size:small" name="scapredena" id="scapredena"
+              [(ngModel)]="scapredena" [ngModelOptions]="{standalone: true}">
+              <option selected value="0">Capredena...</option>
+              <option value="1">Si</option>
+              <option value="2">No</option>
+              <option value="3">Ambos</option>
+            </select>
+          </div>
+          <div class="col-auto my-1">
+            <select class="custom-select mr-sm-2" style="font-size:small" name="sdipreca" id="sdipreca"
+              [(ngModel)]="sdipreca" [ngModelOptions]="{standalone: true}">
+              <option selected value="0">Dipreca...</option>
+              <option value="1">Si</option>
+              <option value="2">No</option>
+              <option value="3">Ambos</option>
+            </select>
+          </div>
+          <div class="col-auto my-1">
+            <select class="custom-select mr-sm-2" style="font-size:small" name="sips" id="sips" [(ngModel)]="sips"
+              [ngModelOptions]="{standalone: true}">
+              <option selected value="0">IPS...</option>
+              <option value="1">Si</option>
+              <option value="2">No</option>
+              <option value="3">Ambos</option>
+            </select>
+          </div>
+          <!--
+          <div class="col-auto my-1">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Y</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">O</label>
+            </div>
+          </div>
+-->
+          <div class="col-auto my-1">
+            <button type="submit" class="btn btn-primary btn-md fa fa-search-plus" (click)='search()'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 offset-md-11">
+      <p>
+        <a class="btn btn-primary btn-md fa fa-filter my-2" data-toggle="collapse" href="#collapseExample" role="button"
+          aria-expanded="false" aria-controls="collapseExample">
+        </a>
+      </p>
+    </div>
+    <div class="table-responsive table-sm my-2">
+      <table class="table table-bordered table-striped sm">
+        <thead class="text-center">
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th colspan="3">Bonos Reconocimiento</th>
+            <th colspan="2">Pension Total</th>
+            <th></th>
+
+          </tr>
+          <tr>
+            <th>Periodo</th>
+            <th>Tipo</th>
+            <th>Elegibilidad</th>
+            <th>Rut</th>
+            <th>Entidad Pagadora</th>
+            <th>Nombre Persona</th>
+            <th>F. Nacimiento</th>
+            <th>Edad</th>
+            <th>Capredena</th>
+            <th>Dipreca</th>
+            <th>IPS</th>
+            <th>UF</th>
+            <th>Pensiones</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let item of datafila; let i">
+            <td>{{item.cPeriodo}}</td>
+            <td>{{item.iCodigoTipoElegibilidad}}</td>
+            <td>{{item.vcDescripcion}}</td>
+            <td>{{item.iRUN}}-{{item.cDV}}</td>
+            <td>{{item.vcEntidadPagadora}}</td>
+            <td>{{item.vcApellidoPaterno}} {{item.vcApellidoMaterno}} {{item.vcNombre}}</td>
+            <td>{{item.dFechaNacimiento}}</td>
+            <td>{{item.iEdad}}</td>
+            <td>{{item.cBonoReconocimientoCAPREDENA}}</td>
+            <td>{{item.cBonoReconocimientoDIPRECA}}</td>
+            <td>{{item.cBonoReconocimientoIPS}}</td>
+            <td>{{item.nPensionTotalUF}}</td>
+            <td>{{item.nTotalPensiones}}</td>
+            <td>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"  id="soption" name="soption"   [(ngModel)]="soption"  [ngModelOptions]="{standalone: true}">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
