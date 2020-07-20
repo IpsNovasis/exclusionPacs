@@ -1,0 +1,64 @@
+<form class="form" style="font-size:12px;">
+
+    <div class="table-responsive table-sm my-2">
+        <table class="table table-bordered table-striped sm">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th colspan="3">Bonos Reconocimiento</th>
+                    <th colspan="2">Pension Total</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                <tr>
+                    <th>Periodo</th>
+                    <th>Rut</th>
+                    <th>Nombres</th>
+                    <th>Capredena</th>
+                    <th>Dipreca</th>
+                    <th>IPS</th>
+                    <th>Pension UF</th>
+                    <th>Total Pensiones</th>
+                    <th>Entidad</th>
+                    <th>Fecha Exclusion</th>
+                    <th>ID Mensaje</th>
+                    <th>Mensaje</th>
+                    <th>Excluido Por</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tr *ngFor="let item of datafila">
+                <td>{{ item.cPeriodo }}</td>
+                <td>{{ item.iRUN}} - {{ item.cDV }}</td>
+                <td>{{ item.vcApellidoPaterno}} {{ item.vcApellidoMaterno}} {{ item.vcNombre }}</td>
+                <td>{{ item.cBonoReconocimientoCAPREDENA }}</td>
+                <td>{{ item.cBonoReconocimientoDIPRECA }}</td>
+                <td>{{ item.cBonoReconocimientoIPS }}</td>
+                <td>{{ item.nPensionTotalUF }}</td>
+                <td>{{ item.nTotalPensiones }}</td>
+                <td>{{ item.vcEntidadPagadora }}</td>
+                <td>{{ item.dFechaExclusion }}</td>
+                <td>{{ item.iCorrelativo }}</td>
+                <td>{{ item.vcMensajeExclusion }}</td>
+                <td>{{ item.vcCodigoUsuarioCreacion }}</td>
+                <td>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    </div>
+                  </td>
+            </tr>
+            <tbody>
+
+
+
+            </tbody>
+        </table>
+    </div>
+</form>
