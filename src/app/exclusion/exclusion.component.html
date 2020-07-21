@@ -1,5 +1,5 @@
-<div class="container-fuild">
-  <form class="form" style="font-size:12px;">
+<div class="container-fluid">
+  <form [formGroup]="form"  style="font-size:12px;">
     <div class="collapse" id="collapseExample">
       <div class="card card-body">
         <div class="form-row align-items-center">
@@ -62,7 +62,17 @@
           </div>
 -->
           <div class="col-auto my-1">
-            <button type="submit" class="btn btn-primary btn-md fa fa-search-plus" (click)='search()'></button>
+            <button type="button" class="btn btn-primary btn-md fa fa-search-plus" (click)='search()'></button>
+          </div>
+          <div class="col-md-5 my-1" style="margin-left: 2rem">
+            <div class="input-group">
+              <textarea class="form-control" aria-label="With2 textarea" id="textoexcl" name="textoexcl"
+                [(ngModel)]="textoexcl" [ngModelOptions]="{standalone: true}"></textarea>
+              <div class="col-auto my-1">
+                <button type="button" class="btn btn-primary btn-sm font-weight-bold"
+                  (click)='submit()'>Exclusión</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -74,6 +84,7 @@
         </a>
       </p>
     </div>
+ 
     <div class="table-responsive table-sm my-2">
       <table class="table table-bordered table-striped sm">
         <thead class="text-center">
@@ -108,24 +119,26 @@
             <th></th>
           </tr>
         </thead>
-        <tbody class="text-center">
-          <tr *ngFor="let item of datafila; let i">
-            <td>{{item.cPeriodo}}</td>
-            <td>{{item.iCodigoTipoElegibilidad}}</td>
-            <td>{{item.vcDescripcion}}</td>
-            <td>{{item.iRUN}}-{{item.cDV}}</td>
-            <td>{{item.vcEntidadPagadora}}</td>
-            <td>{{item.vcApellidoPaterno}} {{item.vcApellidoMaterno}} {{item.vcNombre}}</td>
-            <td>{{item.dFechaNacimiento}}</td>
-            <td>{{item.iEdad}}</td>
-            <td>{{item.cBonoReconocimientoCAPREDENA}}</td>
-            <td>{{item.cBonoReconocimientoDIPRECA}}</td>
-            <td>{{item.cBonoReconocimientoIPS}}</td>
-            <td>{{item.nPensionTotalUF}}</td>
-            <td>{{item.nTotalPensiones}}</td>
+        <tbody>
+          <tr formArrayName="orders" *ngFor="let orders of ordersFormArray.controls; let i = index">
+            <td class="text-center">{{ordersData[i].cPeriodo}}</td>
+            <td class="text-center">{{ordersData[i].iCodigoTipoElegibilidad}}</td>
+            <td class="text-left">{{ordersData[i].vcDescripcion}}</td>
+            <td class="text-right">{{ordersData[i].iRUN}}-{{ordersData[i].cDV}}</td>
+            <td class="text-center">{{ordersData[i].vcEntidadPagadora}}</td>
+            <td class="text-left">{{ordersData[i].vcApellidoPaterno}} {{ordersData[i].vcApellidoMaterno}}
+              {{ordersData[i].vcNombre}}</td>
+            <td class="text-center">{{ordersData[i].dFechaNacimiento}}</td>
+            <td class="text-center">{{ordersData[i].iEdad}}</td>
+            <td class="text-center">{{ordersData[i].cBonoReconocimientoCAPREDENA}}</td>
+            <td class="text-center">{{ordersData[i].cBonoReconocimientoDIPRECA}}</td>
+            <td class="text-center">{{ordersData[i].cBonoReconocimientoIPS}}</td>
+            <td class="text-center">{{ordersData[i].nPensionTotalUF}}</td>
+            <td class="text-center">{{ordersData[i].nTotalPensiones}}</td>
             <td>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox"  id="soption" name="soption"   [(ngModel)]="soption"  [ngModelOptions]="{standalone: true}">
+                <input class="form-check-input" type="checkbox" [formControlName]="i">
+                <!--     {{ordersData[i].iRUN }} -->
               </div>
             </td>
           </tr>
