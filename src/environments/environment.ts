@@ -7,6 +7,7 @@ export const environment = {
   urlEleCon : 'http://localhost:8080/ExclusionPacs/pacs/elegibilidad/',
   urlExcCon : 'http://localhost:8080/ExclusionPacs/pacs/excluidos/',
   urlExcIns : 'http://localhost:8080/ExclusionPacs/pacs/exclusion/',
+  urlIncIns : 'http://localhost:8080/ExclusionPacs/pacs/inclusion/',
   
 };
 
